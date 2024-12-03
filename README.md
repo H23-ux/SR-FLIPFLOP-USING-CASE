@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/da3b14a3-2607-47c2-bab7-fad0cabba9c6)# SR-FLIPFLOP-USING-CASE
+# SR-FLIPFLOP-USING-CASE
 
 **AIM:**
 
@@ -40,6 +40,21 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 
 /* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:24001722
 */
+module sr(s,r,clk,q,qbar);
+input s,r,clk;
+output reg q;
+output reg qbar;
+initial
+begin 
+q=0;
+qbar=1;
+end
+always@(posedge clk)
+begin
+ q=s|(~r&q);
+ qbar=r|(~s&~q);
+end
+endmodule
 
 **RTL LOGIC FOR FLIPFLOPS**
 ![Screenshot (17)](https://github.com/user-attachments/assets/f2812076-3335-4f35-aea0-a1edc0517af5)
